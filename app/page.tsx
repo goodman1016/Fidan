@@ -98,7 +98,7 @@ export default function HomePage() {
             Whether you're hiring globally or seeking career growth, I’d love to support you.
           </p>
           <a
-            href="mailto:fidan@gmail.com"
+            href="mailto:fidaniummm@gmail.com"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-indigo-700 rounded-xl text-lg font-semibold hover:bg-gray-100 transition"
           >
             <FaEnvelope /> Contact Me
@@ -110,13 +110,13 @@ export default function HomePage() {
       <footer className="py-6 bg-gray-100 text-center text-gray-600 text-sm">
         <div className="flex justify-center gap-4 mb-2">
           <a
-            href="https://www.linkedin.com/in/fidan"
+            href="https://www.linkedin.com/in/fidanh/"
             target="_blank"
             className="hover:text-indigo-700"
           >
             <FaLinkedin size={20} />
           </a>
-          <a href="mailto:fidan@gmail.com" className="hover:text-indigo-700">
+          <a href="mailto:fidaniummm@gmail.com" className="hover:text-indigo-700">
             <FaEnvelope size={20} />
           </a>
         </div>
