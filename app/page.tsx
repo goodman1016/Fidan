@@ -3,6 +3,33 @@ import React from "react";
 import { FaEnvelope, FaLinkedin } from "react-icons/fa";
 import { FiUsers, FiMic, FiFileText, FiGlobe } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+
+const testimonials = [
+  {
+    name: "Sofia R.",
+    text: "Fidan’s coaching helped me land a job at a US startup. Her insights were incredibly helpful!",
+  },
+  {
+    name: "Liam T.",
+    text: "The resume rewrite and LinkedIn tips brought in more recruiters in one week than months before.",
+  },
+  {
+    name: "Aya K.",
+    text: "Her career coaching gave me clarity during a huge life transition. Truly life-changing!",
+  },
+  {
+    name: "Carlos M.",
+    text: "Thanks to Fidan, I cracked interviews at multiple European tech firms as a non-native speaker.",
+  },
+  {
+    name: "Elena P.",
+    text: "She brings empathy, strategy, and real-world results. A rare combination in career guidance.",
+  },
+];
 
 export default function HomePage() {
   const services = [
@@ -25,17 +52,6 @@ export default function HomePage() {
       title: "Cross-Cultural Communication",
       desc: "Empowering distributed teams to collaborate effectively across borders.",
       icon: <FiGlobe size={28} className="text-blue-500" />,
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: "Sofia R.",
-      text: "Fidan’s coaching helped me land a job at a US startup. Her insights were incredibly helpful!",
-    },
-    {
-      name: "Liam T.",
-      text: "The resume rewrite and LinkedIn tips brought in more recruiters in one week than months before.",
     },
   ];
 
@@ -212,30 +228,31 @@ export default function HomePage() {
             className="h-1 bg-gradient-to-r from-indigo-400 via-pink-400 to-purple-500 rounded-full mx-auto mb-12"
           />
 
-          <div className="grid md:grid-cols-2 gap-10">
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 6000 }}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+              },
+            }}
+            className="max-w-5xl mx-auto"
+          >
             {testimonials.map((t, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.2 }}
-                className="bg-white rounded-3xl shadow-xl p-8 text-left hover:shadow-2xl transition duration-300 relative"
-              >
-                {/* Optional Gradient Quote Icon */}
-                <div className="absolute top-6 left-6 text-4xl text-transparent bg-clip-text bg-gradient-to-br from-indigo-400 to-pink-500 select-none">
-                  &ldquo;
+              <SwiperSlide key={i}>
+                <div className="bg-white rounded-3xl shadow-lg p-8 h-full flex flex-col justify-between text-left">
+                  <div>
+                    <div className="text-2xl text-indigo-400 mb-4">“</div>
+                    <p className="text-gray-800 italic">{t.text}</p>
+                  </div>
+                  <p className="mt-6 font-bold text-indigo-700">— {t.name}</p>
                 </div>
-
-                <p className="text-lg italic text-gray-800 pl-8 pr-2 z-10 relative">
-                  {t.text}
-                </p>
-
-                <div className="mt-6 pl-8 z-10 relative">
-                  <p className="font-bold text-indigo-700">— {t.name}</p>
-                </div>
-              </motion.div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
       </section>
 
