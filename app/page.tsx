@@ -104,21 +104,67 @@ export default function HomePage() {
       </section>
 
       {/* About */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl font-semibold mb-6 text-gray-900"
-          >
-            About Me
-          </motion.h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            I’m a global business professional with deep experience in international collaboration,
-            remote hiring, and career coaching. I thrive on building cross-cultural bridges and empowering
-            individuals to reach their full potential.
-          </p>
+      <section className="py-32 px-6 bg-white relative">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* Title */}
+          <div className="text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-5xl font-extrabold text-gray-900 mb-3"
+            >
+              Who I Am
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, width: 0 }}
+              whileInView={{ opacity: 1, width: "90px" }}
+              transition={{ duration: 0.8 }}
+              className="h-1 mx-auto bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-500 rounded-full"
+            />
+          </div>
+
+          {/* 3 Block Cards */}
+          <div className="grid md:grid-cols-3 gap-10">
+            {/* Block 1: Identity */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="bg-indigo-50 border-t-4 border-indigo-400 rounded-2xl p-8 shadow-lg"
+            >
+              <h3 className="text-2xl font-bold text-indigo-700 mb-4">Vision</h3>
+              <p className="text-gray-700 leading-relaxed">
+                I’m Fidan — a global talent strategist and executive coach. My mission is to bridge cultures, empower individuals, and build remote-first organizations that thrive across borders.
+              </p>
+            </motion.div>
+
+            {/* Block 2: Experience */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="bg-purple-50 border-l-4 border-purple-400 rounded-2xl p-8 shadow-lg"
+            >
+              <h3 className="text-2xl font-bold text-purple-700 mb-4">Experience</h3>
+              <p className="text-gray-700 leading-relaxed">
+                With over a decade of experience, I’ve led international recruitment drives, coached professionals worldwide, and consulted leaders on scaling diverse, high-performing teams.
+              </p>
+            </motion.div>
+
+            {/* Block 3: Value */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="bg-yellow-50 border-r-4 border-yellow-400 rounded-2xl p-8 shadow-lg"
+            >
+              <h3 className="text-2xl font-bold text-yellow-700 mb-4">Impact</h3>
+              <p className="text-gray-700 leading-relaxed">
+                I help global businesses hire smarter and help individuals unlock career breakthroughs. My work makes hiring human and growth intentional — every step of the way.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -149,20 +195,44 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-semibold mb-10 text-gray-900">What People Say</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+      <section className="py-32 px-6 bg-gray-50">
+        <div className="max-w-5xl mx-auto text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl font-extrabold text-gray-900 mb-6"
+          >
+            What People Say
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, width: 0 }}
+            whileInView={{ opacity: 1, width: "80px" }}
+            transition={{ duration: 0.8 }}
+            className="h-1 bg-gradient-to-r from-indigo-400 via-pink-400 to-purple-500 rounded-full mx-auto mb-12"
+          />
+
+          <div className="grid md:grid-cols-2 gap-10">
             {testimonials.map((t, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition"
+                transition={{ delay: i * 0.2 }}
+                className="bg-white rounded-3xl shadow-xl p-8 text-left hover:shadow-2xl transition duration-300 relative"
               >
-                <p className="text-lg italic mb-4">“{t.text}”</p>
-                <p className="font-bold text-blue-700">- {t.name}</p>
+                {/* Optional Gradient Quote Icon */}
+                <div className="absolute top-6 left-6 text-4xl text-transparent bg-clip-text bg-gradient-to-br from-indigo-400 to-pink-500 select-none">
+                  &ldquo;
+                </div>
+
+                <p className="text-lg italic text-gray-800 pl-8 pr-2 z-10 relative">
+                  {t.text}
+                </p>
+
+                <div className="mt-6 pl-8 z-10 relative">
+                  <p className="font-bold text-indigo-700">— {t.name}</p>
+                </div>
               </motion.div>
             ))}
           </div>
